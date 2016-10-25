@@ -26,7 +26,7 @@ class CriteriaTest  extends \PHPUnit_Framework_TestCase
             case 2:
                 $caseCriteria->setParameter("prenom");
                 $caseCriteria->setOperator(" = ");
-                $caseCriteria->setValue("flaurent"); 
+                $caseCriteria->setValue("flauriant"); 
                 break;
             case 3:
                 $caseCriteria->setParameter("age");
@@ -38,18 +38,19 @@ class CriteriaTest  extends \PHPUnit_Framework_TestCase
                 $caseCriteria->setOperator(" <> ");
                 $caseCriteria->setValue("valeur"); 
                 break;
-        }        
+        }  
+        return $caseCriteria;
     }   
     
     /**
-     * tostring Provider
+     * toString Provider
      * 
-     * [ $criteria, $criteriaString, $description ]
+     * [ $criteria, $criteriaString, $description]
      */
-    public function tostringProvider()
+    public function toStringProvider()
     {
         return [
-                [$this->selectCriteria(1), "nom = albert", "Critere de nom"],
+                [$this->selectCriteria(1), "nom = albert expect", "Critere de nom"],
                 [$this->selectCriteria(2), "prenom = flauriant", "Critere de prenom"],
                 [$this->selectCriteria(3), "age > 20", "Critere d'age"],
                 [$this->selectCriteria(4), "parametre <> valeur", "Un simple parametre"],
@@ -57,12 +58,14 @@ class CriteriaTest  extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers ::toString
+     * 
      *
      * @dataProvider toStringProvider
      */
-    public function testToString($criteria, $criteriaString, $description )
+    public function testToString($criteria, $criteriaString, $description)
     {
-       // $this->assertEquals($criteria->toString(), $criteriaString, $description);
+        var_dump($criteria);
+        $this->assertEquals($criteriaString, $criteria->toString(), $description);
+        $this->assertTrue(TRUE);        
     }
 }

@@ -62,6 +62,8 @@ class Container {
         $this->criterias[] = $criteria;
     }
     
+    
+    
     public function addContainer(Container $container)
     {
         //Verifier qu'il s'agit bien de la classe container 
@@ -94,7 +96,9 @@ class Container {
             {
                 $request .= " ".$this->coordinator." "; 
             }    
-            $request .= $tempCriteria->toString();            
+            //var_dump($tempCriteria);
+            $request .= $tempCriteria->toString();   
+            
         } 
         
         foreach ($tempContainers as $keyContainer => $tempContainer)

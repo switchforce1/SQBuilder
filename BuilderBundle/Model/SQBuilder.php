@@ -54,19 +54,20 @@ class SQBuilder {
             //check if param have array inside
             if(!(is_array($innerArray = $hoverArray['conditions'])))
             {
-                    return null;
+                return null;
             }
             else
-            {       //check if the array inside empty/null  
-                    if(empty($innerArray))
-                    {
-                            return null;
-                    }
-                    //when the inner array is not null 
-                    else 
-                    {
-                            return $innerArray;
-                    }
+            {       
+                //check if the array inside empty/null  
+                if(empty($innerArray))
+                {
+                        return null;
+                }
+                //when the inner array is not null 
+                else 
+                {
+                        return $innerArray;
+                }
             }    
             return null;           
     }   

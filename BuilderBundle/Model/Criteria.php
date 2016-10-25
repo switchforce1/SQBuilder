@@ -42,8 +42,8 @@ class Criteria {
         $this->value = $value;
     }
 
-    function getString()
+    function toString()
     {
-        return $this->parameter.' '.$this->operator.' '.$this->value;
+        return $this->parameter.''.$this->operator.''.$this->value;
     }
 }

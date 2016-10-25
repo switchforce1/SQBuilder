@@ -19,33 +19,69 @@ class ContainerTest  extends \PHPUnit_Framework_TestCase
         $criterias = array();
         for ($i=1; $i <= 3 ; $i++)
         {
-           $criterias[] = CriteriaTest::selectCriteria($i); 
+           $criterias[$i] = CriteriaTest::selectCriteria($i); 
         }
         
         $caseContainer  = new SQContainer();
-        switch($criteriaNum )
+        switch($containerNum)
         {
             case 1:
-                
+                $caseContainer->setCoordinator("ET");
+                $caseContainer->addCriteria($criterias[1]);
+                $caseContainer->addCriteria($criterias[1]);
+                $caseContainer->addCriteria($criterias[1]);
                 break;
             case 2:
+                $caseContainer->setCoordinator("OU");
+                $caseContainer->addCriteria($criterias[1]);
+                $caseContainer->addCriteria($criterias[1]);
+                $caseContainer->addCriteria($criterias[1]);
                 break;
             case 3:
+                $caseContainer->setCoordinator("OU");
+                $caseContainer->addCriteria($criterias[1]);
+                $caseContainer->addCriteria($criterias[2]);
+                $caseContainer->addCriteria($criterias[3]);
                 break;
             default :
+                $caseContainer->setCoordinator("ET");
+                $caseContainer->addCriteria($criterias[3]);
+                $caseContainer->addCriteria($criterias[1]);
+                $caseContainer->addCriteria($criterias[2]);
                 break;
         }
-        
+        return $caseContainer;
     }        
 
 
     /**
-     * [ $criteria, $criteriaString, $description ]
+     * [ $container, $containerString, $description ]
      */
     public function toStringProvider()
     {
-       $this->assertTrue(true);
+       return [
+                [$this->selectContainer(1),
+                    "(nom = albert ET nom = albert ET nom = albert)", 
+                    "Critere de nom"],
+                [$this->selectContainer(2), 
+                    "(nom = albert OU nom = albert OU nom = albert)", 
+                    "Critere d'age"],
+                [$this->selectContainer(3), 
+                    "(nom = albert OU prenom = flauriant OU age > 20)",
+                    "Critere de prenom"],
+                [$this->selectContainer(4), 
+                    "(age > 20 ET nom = albert ET prenom = flauriant)", 
+                    "Un simple parametre"],
+                ];
     }
     
-    
+    /**
+     * @covers ::toString
+     *
+     * @dataProvider toStringProvider
+     */
+    public function testToString($container, $containerString, $description)
+    {
+        $this->assertEquals($container->toString(), $containerString, $description);
+    }       
 }
