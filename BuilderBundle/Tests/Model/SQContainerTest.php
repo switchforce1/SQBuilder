@@ -4,7 +4,7 @@ namespace StructuredQuery\BuilderBundle\Tests\Model;
 
 use StructuredQuery\BuilderBundle\Model\Container as SQContainer;
 
-class ContainerTest  extends \PHPUnit_Framework_TestCase
+class SQContainerTest  extends \PHPUnit_Framework_TestCase
 {
     public $container;
     

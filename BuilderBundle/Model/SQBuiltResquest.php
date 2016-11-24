@@ -1,7 +1,7 @@
 <?php
 namespace StructuredQuery\BuilderBundle\Model;
 
-class BuiltResquest {
+class SQBuiltResquest {
    
     //les relation à générer en cas de jointure
     protected $relations ;

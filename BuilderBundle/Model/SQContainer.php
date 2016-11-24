@@ -1,7 +1,7 @@
 <?php
 namespace StructuredQuery\BuilderBundle\Model;
 
-class Container {
+class SQContainer {
     //put your code here
     //le coordinateeur (ET ou OU)
     protected $coordinator; 

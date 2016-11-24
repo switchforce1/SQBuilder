@@ -1,7 +1,7 @@
 <?php
 namespace StructuredQuery\BuilderBundle\Model;
 
-class EntityObjectRelation {
+class SQEntityObjectRelation {
     //put your code here
     
     

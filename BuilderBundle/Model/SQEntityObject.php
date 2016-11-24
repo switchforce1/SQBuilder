@@ -1,6 +1,6 @@
 <?php
 namespace StructuredQuery\BuilderBundle\Model;
 
-class EntityObject {
+class SQEntityObject {
     //put your code here
 }
