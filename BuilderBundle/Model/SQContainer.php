@@ -7,16 +7,16 @@ class SQContainer {
     protected $coordinator; 
     
     //tableau de critere enventuel ( une ligne de contraite )
-    protected $criterias;
+    protected $sqcriterias;
     
     //Tableau des conteneurs eventuels
-    protected $containers;
+    protected $sqcontainers;
 
 
     public function __construct() 
     {
-        $this->criterias = array();
-        $this->containers = array();
+        $this->sqcriterias = array();
+        $this->sqcontainers = array();
     }
     
     public function getCoordinator() 
@@ -26,7 +26,7 @@ class SQContainer {
 
     public function getCriterias() 
     {
-        return $this->criterias;
+        return $this->sqcriterias;
     }
 
     public function setCoordinator($coordinator) 
@@ -36,51 +36,51 @@ class SQContainer {
 
     public function setCriterias($criterias) 
     {
-        $this->criterias = $criterias;
+        $this->sqcriterias = $criterias;
     }
     
     public function getContainers() 
     {
-        return $this->containers;
+        return $this->sqcontainers;
     }
 
     public function setContainers($containers) 
     {
-        $this->containers = $containers;
+        $this->sqcontainers = $containers;
     }
 
     
-    public function addCriteria(Criteria $criteria)
+    public function addSQCriteria(SQCriteria $criteria)
     {
         //Verifier qu'il s'agit bien de la classe criteria 
-        if(!strpos($className = get_class($criteria), "Criteria"))
+        if(!strpos($className = get_class($criteria), "SQCriteria"))
         {
            return null; 
         }       
         //Au cas où il s'agit bien de la classe des criteres,
         //On ajoute le critere 
-        $this->criterias[] = $criteria;
+        $this->sqcriterias[] = $criteria;
     }
     
     
     
-    public function addContainer(Container $container)
+    public function addSQContainer(SQContainer $container)
     {
         //Verifier qu'il s'agit bien de la classe container 
-        if(!strpos($className = get_class($container), "Container"))
+        if(!strpos($className = get_class($container), "SQContainer"))
         {
            return null;
            
         }       
         //Au cas où il s'agit bien de la classe des criteres,
         //On ajoute le critere 
-        $this->containers[] = $container;
+        $this->sqcontainers[] = $container;
     }
     
     public function toString()
     {
         //AU cas où il n'existe pas de critere de selection
-        if(empty($this->criterias))
+        if(empty($this->sqcriterias))
         {
             return "";
         }  

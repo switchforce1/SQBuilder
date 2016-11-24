@@ -2,7 +2,7 @@
 
 namespace StructuredQuery\BuilderBundle\Tests\Model;
 
-use StructuredQuery\BuilderBundle\Model\Container as SQContainer;
+use StructuredQuery\BuilderBundle\Model\SQContainer as SQContainer;
 
 class SQContainerTest  extends \PHPUnit_Framework_TestCase
 {
@@ -10,7 +10,7 @@ class SQContainerTest  extends \PHPUnit_Framework_TestCase
     
     public function setUp()
     {
-        $this->container = new SQContainer();
+        $this->sqcontainer = new SQContainer();
     }  
     
     
@@ -19,7 +19,7 @@ class SQContainerTest  extends \PHPUnit_Framework_TestCase
         $criterias = array();
         for ($i=1; $i <= 3 ; $i++)
         {
-           $criterias[$i] = CriteriaTest::selectCriteria($i); 
+           $criterias[$i] = SQCriteriaTest::selectCriteria($i); 
         }
         
         $caseContainer  = new SQContainer();
@@ -27,27 +27,27 @@ class SQContainerTest  extends \PHPUnit_Framework_TestCase
         {
             case 1:
                 $caseContainer->setCoordinator("ET");
-                $caseContainer->addCriteria($criterias[1]);
-                $caseContainer->addCriteria($criterias[1]);
-                $caseContainer->addCriteria($criterias[1]);
+                $caseContainer->addSQCriteria($criterias[1]);
+                $caseContainer->addSQCriteria($criterias[1]);
+                $caseContainer->addSQCriteria($criterias[1]);
                 break;
             case 2:
                 $caseContainer->setCoordinator("OU");
-                $caseContainer->addCriteria($criterias[1]);
-                $caseContainer->addCriteria($criterias[1]);
-                $caseContainer->addCriteria($criterias[1]);
+                $caseContainer->addSQCriteria($criterias[1]);
+                $caseContainer->addSQCriteria($criterias[1]);
+                $caseContainer->addSQCriteria($criterias[1]);
                 break;
             case 3:
                 $caseContainer->setCoordinator("OU");
-                $caseContainer->addCriteria($criterias[1]);
-                $caseContainer->addCriteria($criterias[2]);
-                $caseContainer->addCriteria($criterias[3]);
+                $caseContainer->addSQCriteria($criterias[1]);
+                $caseContainer->addSQCriteria($criterias[2]);
+                $caseContainer->addSQCriteria($criterias[3]);
                 break;
             default :
                 $caseContainer->setCoordinator("ET");
-                $caseContainer->addCriteria($criterias[3]);
-                $caseContainer->addCriteria($criterias[1]);
-                $caseContainer->addCriteria($criterias[2]);
+                $caseContainer->addSQCriteria($criterias[3]);
+                $caseContainer->addSQCriteria($criterias[1]);
+                $caseContainer->addSQCriteria($criterias[2]);
                 break;
         }
         return $caseContainer;

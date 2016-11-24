@@ -2,7 +2,7 @@
 
 namespace StructuredQuery\BuilderBundle\Tests\Model;
 
-use StructuredQuery\BuilderBundle\Model\Criteria as SQCriteria;
+use StructuredQuery\BuilderBundle\Model\SQCriteria as SQCriteria;
 
 class SQCriteriaTest  extends \PHPUnit_Framework_TestCase
 {
