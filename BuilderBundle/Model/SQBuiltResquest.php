@@ -9,6 +9,10 @@ class SQBuiltResquest {
     //les objets de la request ne necissitant pas de jointure
     protected $entityObjects;
     
+    //Le conteneur de requete a genenerer avec les parametres
+    protected $container ; 
+
+
     public function __construct() 
     {
         $this->relations =  array();
@@ -33,6 +37,16 @@ class SQBuiltResquest {
     public function setEntityObjects($entityObjects) 
     {
         $this->entityObjects = $entityObjects;
+    }
+
+    public function getContainer() 
+    {
+        return $this->container;
+    }
+
+    public function setContainer($container) 
+    {
+        $this->container = $container;
     }
 
 
