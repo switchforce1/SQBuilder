@@ -1,7 +1,7 @@
 <?php
 namespace StructuredQuery\BuilderBundle\Model;
 
-class Criteria {
+class SQCriteria {
     //put your code here
     //nom du parametre sur lequel se fera la recherche
     protected $parameter;

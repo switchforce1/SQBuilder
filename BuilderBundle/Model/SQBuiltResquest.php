@@ -1,7 +1,7 @@
 <?php
 namespace StructuredQuery\BuilderBundle\Model;
 
-class BuiltResquest {
+class SQBuiltResquest {
    
     //les relation à générer en cas de jointure
     protected $relations ;
@@ -9,6 +9,10 @@ class BuiltResquest {
     //les objets de la request ne necissitant pas de jointure
     protected $entityObjects;
     
+    //Le conteneur de requete a genenerer avec les parametres
+    protected $container ; 
+
+
     public function __construct() 
     {
         $this->relations =  array();
@@ -33,6 +37,16 @@ class BuiltResquest {
     public function setEntityObjects($entityObjects) 
     {
         $this->entityObjects = $entityObjects;
+    }
+
+    public function getContainer() 
+    {
+        return $this->container;
+    }
+
+    public function setContainer($container) 
+    {
+        $this->container = $container;
     }
 
 

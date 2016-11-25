@@ -2,9 +2,9 @@
 
 namespace StructuredQuery\BuilderBundle\Tests\Model;
 
-use StructuredQuery\BuilderBundle\Model\Criteria as SQCriteria;
+use StructuredQuery\BuilderBundle\Model\SQCriteria as SQCriteria;
 
-class CriteriaTest  extends \PHPUnit_Framework_TestCase
+class SQCriteriaTest  extends \PHPUnit_Framework_TestCase
 {
     //put your code here
     public $criteria;
